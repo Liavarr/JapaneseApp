@@ -13,8 +13,8 @@ public class ExamProgress extends Progress{
     public ExamProgress() {
     }
 
-    public ExamProgress(String id, int hit, int fail, Date lastTimeSeen, Date firstTimeSeen, ArrayMap<String, String> questionsAnswers, String[] userAnswers) {
-        super(id, hit, fail, lastTimeSeen, firstTimeSeen);
+    public ExamProgress(String id, Object object, int hit, int fail, Date lastTimeSeen, Date firstTimeSeen, ArrayMap<String, String> questionsAnswers, String[] userAnswers) {
+        super(id, object, hit, fail, lastTimeSeen, firstTimeSeen);
         this.questionsAnswers = questionsAnswers;
         this.userAnswers = userAnswers;
     }

@@ -7,8 +7,7 @@ import java.util.ArrayList;
 public class Kanji {
     // Attributes
     private String id;
-    private String japanese;
-    private String meaning;
+    private ArrayMap<String, String> meaning;
     private String level; // N5, N4, N3, N2, N1
     private String history;
     private Kanji radical;
@@ -23,9 +22,8 @@ public class Kanji {
     public Kanji() {
     }
 
-    public Kanji(String id, String japanese, String meaning, String spanishMeaning, String level, String history, Kanji radical, ArrayList<String> onyomi, ArrayList<String> kunyomi, String category, String subcategory, int difficulty) {
+    public Kanji(String id, ArrayMap<String, String> meaning, String level, String history, Kanji radical, ArrayList<String> onyomi, ArrayList<String> kunyomi, String category, String subcategory, int difficulty) {
         this.id = id;
-        this.japanese = japanese;
         this.meaning = meaning;
         this.level = level;
         this.history = history;
@@ -49,19 +47,11 @@ public class Kanji {
         this.id = id;
     }
 
-    public String getJapaneseMeaning() {
-        return japanese;
-    }
-
-    public void setJapaneseMeaning(String japanese) {
-        this.japanese = japanese;
-    }
-
-    public String getMeaning() {
+    public ArrayMap<String, String> getMeaning() {
         return meaning;
     }
 
-    public void setMeaning(String meaning) {
+    public void setMeaning(ArrayMap<String, String> meaning) {
         this.meaning = meaning;
     }
 

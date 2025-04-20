@@ -1,29 +1,28 @@
 package com.example.japaneseapplication.model;
 
+import android.util.ArrayMap;
+
 import java.util.ArrayList;
 
 public class Grammar {
     // Attributes
     private String id;
-    private String japanese; // explanation of the grammar in japanese (te imasu, y esas cosas) that will be showed up with the language you are using + japanese. I.E: Past (~ta)
-    private String title;
-    private String description;
+    private ArrayMap<String, String> title; // explanation of the grammar in japanese (te imasu, y esas cosas) that will be showed up with the language you are using + japanese. I.E: Past (~ta)
+    private ArrayMap<String, String> description;
+    private ArrayMap<String, String> example;
     private String level; // N5, N4, N3, N2, N1
     private String category;
-    private String exampleJapanese;
-    private String structure;
-
+    private ArrayMap<String, String> structure;
     public Grammar() {
     }
 
-    public Grammar(String id, String japanese, String title, String description, String level, String category, String exampleJapanese, String structure) {
+    public Grammar(String id, String japanese, ArrayMap<String, String> title, ArrayMap<String, String> description, String level, String category, ArrayMap<String, String> example, ArrayMap<String, String> structure) {
         this.id = id;
-        this.japanese = japanese;
         this.title = title;
         this.description = description;
         this.level = level;
+        this.example = example;
         this.category = category;
-        this.exampleJapanese = exampleJapanese;
         this.structure = structure;
     }
 
@@ -35,27 +34,19 @@ public class Grammar {
         this.id = id;
     }
 
-    public String getJapanese() {
-        return japanese;
-    }
-
-    public void setJapanese(String japanese) {
-        this.japanese = japanese;
-    }
-
-    public String getTitle() {
+    public ArrayMap<String, String> getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(ArrayMap<String, String> title) {
         this.title = title;
     }
 
-    public String getDescription() {
+    public ArrayMap<String, String> getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(ArrayMap<String, String> description) {
         this.description = description;
     }
 
@@ -75,19 +66,19 @@ public class Grammar {
         this.category = category;
     }
 
-    public String getExampleJapanese() {
-        return exampleJapanese;
+    public ArrayMap<String, String> getExample() {
+        return example;
     }
 
-    public void setExampleJapanese(String exampleJapanese) {
-        this.exampleJapanese = exampleJapanese;
+    public void setExample(ArrayMap<String, String> example) {
+        this.example = example;
     }
 
-    public String getStructure() {
+    public ArrayMap<String, String> getStructure() {
         return structure;
     }
 
-    public void setStructure(String structure) {
+    public void setStructure(ArrayMap<String, String> structure) {
         this.structure = structure;
     }
 }

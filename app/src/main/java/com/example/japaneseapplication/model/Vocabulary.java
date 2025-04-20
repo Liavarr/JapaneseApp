@@ -7,15 +7,14 @@ import java.util.Map;
 public class Vocabulary {
     // Attributes
     private String id;
-    private String japanese;
-    private String meaning;
+    private ArrayMap<String, String> meaning;
+    private ArrayMap<String, String> example;
+    private ArrayMap<String, String> context;
     private String level; // N5, N4, N3, N2, N1
-    private String example;
-    private String context;
     private boolean regular; // If is a verb it could be not regular
+    private String group; // For example group 1, group 2, group 3, adj na, adj i, counter, etc.
     private String category; //
     private String subcategory; //
-    private String group; // For example group 1, group 2, group 3, adj na, adj i, counter, etc.
     private ArrayMap <String, String> conjugation; // Here we save all non regular verbs
     private ArrayMap <String, String> furigana; //here we save syllable with its reading Kanji - Hiragana
     private int difficulty;
@@ -24,10 +23,9 @@ public class Vocabulary {
     public Vocabulary() {
     }
 
-    public Vocabulary(String id, String japanese, String englishMeaning, String spanishMeaning, String level, String example, String context, boolean regular, String category, String subcategory, String group, ArrayMap<String, String> conjugation, ArrayMap<String, String> furigana, int difficulty) {
+    public Vocabulary(String id, ArrayMap<String, String> meaning,  ArrayMap<String, String> example, ArrayMap<String, String> context, String level,  boolean regular, String category, String subcategory, String group, ArrayMap<String, String> conjugation, ArrayMap<String, String> furigana, int difficulty) {
         this.id = id;
-        this.japanese = japanese;
-        this.meaning = englishMeaning;
+        this.meaning = meaning;
         this.level = level;
         this.example = example;
         this.context = context;
@@ -44,26 +42,18 @@ public class Vocabulary {
     public String getId() {
         return id;
     }
-
-    public String getJapanese() {
-        return japanese;
-    }
-
-    public String getMeaning() {
+    public ArrayMap<String, String> getMeaning() {
         return meaning;
     }
-
-
-    public String getLevel() {
-        return level;
-    }
-
-    public String getExample() {
+    public ArrayMap<String, String> getExample() {
         return example;
     }
 
-    public String getContext() {
+    public ArrayMap<String, String> getContext() {
         return context;
+    }
+    public String getLevel() {
+        return level;
     }
 
     public boolean isRegular() {
@@ -99,11 +89,7 @@ public class Vocabulary {
         this.id = id;
     }
 
-    public void setJapaneseMeaning(String japanese) {
-        this.japanese = japanese;
-    }
-
-    public void setEnglishMeaning(String meaning) {
+    public void setMeaning(ArrayMap<String, String> meaning) {
         this.meaning = meaning;
     }
 
@@ -111,11 +97,11 @@ public class Vocabulary {
         this.level = level;
     }
 
-    public void setExample(String example) {
+    public void setExample(ArrayMap<String, String> example) {
         this.example = example;
     }
 
-    public void setContext(String context) {
+    public void setContext(ArrayMap<String, String> context) {
         this.context = context;
     }
 

@@ -78,4 +78,8 @@ public class Leveling {
 
         }
     }
+
+    public void levelUp (User user){
+
+    }
 }
