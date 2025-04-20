@@ -8,6 +8,8 @@ public class User {
     private String password;
     private String email;
     private int userType;
-    vocabularyProgress
+    private Progress vocabularyProgress;
+    private Progress kanjiProgress;
+    private Progress grammarProgress;
 
 }
