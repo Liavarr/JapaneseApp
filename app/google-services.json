@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "54618062169",
+    "project_id": "japanesedatabase-32d03",
+    "storage_bucket": "japanesedatabase-32d03.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54618062169:android:689a1596fa567ffda0a048",
+        "android_client_info": {
+          "package_name": "com.example.japaneseapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4pYUQQTDM1taEAxL2zapHazoMO7zT6G0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

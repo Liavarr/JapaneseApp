@@ -7,7 +7,7 @@ public class User {
     private String name;
     private String lastName;
     private String username;
-    private String password;
+    // private String password;
     private String email;
     private int userType;
     private Progress vocabularyProgress;
@@ -20,12 +20,12 @@ public class User {
     public User() {
     }
 
-    public User(String id, String name, String lastName, String username, String password, String email, int userType, Progress vocabularyProgress, Progress kanjiProgress, Progress grammarProgress, Date creationDate, int experience, int level) {
+    public User(String id, String name, String lastName, String username, String email, int userType, Progress vocabularyProgress, Progress kanjiProgress, Progress grammarProgress, Date creationDate, int experience, int level) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.username = username;
-        this.password = password;
+        //this.password = password;
         this.email = email;
         this.userType = userType;
         this.vocabularyProgress = vocabularyProgress;
@@ -68,13 +68,13 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
+    /* public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
-    }
+    }*/
 
     public String getEmail() {
         return email;
