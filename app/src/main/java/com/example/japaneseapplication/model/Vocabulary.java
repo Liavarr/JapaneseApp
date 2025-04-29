@@ -1,29 +1,30 @@
 package com.example.japaneseapplication.model;
 
-import android.util.ArrayMap;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Vocabulary {
     // Attributes
     private String id;
-    private ArrayMap<String, String> meaning;
-    private ArrayMap<String, String> example;
-    private ArrayMap<String, String> context;
+    private HashMap<String, String> meaning;
+    private HashMap<String, String> example;
+    private HashMap<String, String> context;
     private String level; // N5, N4, N3, N2, N1
     private boolean regular; // If is a verb it could be not regular
     private String group; // For example group 1, group 2, group 3, adj na, adj i, counter, etc.
     private String category; //
-    private String subcategory; //
-    private ArrayMap <String, String> conjugation; // Here we save all non regular verbs
-    private ArrayMap <String, String> furigana; //here we save syllable with its reading Kanji - Hiragana
+    private List<String> subcategory; //
+    private HashMap <String, String> conjugation; // Here we save all non regular verbs
+    private HashMap <String, String> furigana; //here we save syllable with its reading Kanji - Hiragana
     private int difficulty;
 
     // Constructors
     public Vocabulary() {
     }
 
-    public Vocabulary(String id, ArrayMap<String, String> meaning,  ArrayMap<String, String> example, ArrayMap<String, String> context, String level,  boolean regular, String category, String subcategory, String group, ArrayMap<String, String> conjugation, ArrayMap<String, String> furigana, int difficulty) {
+    public Vocabulary(String id, HashMap<String, String> meaning,  HashMap<String, String> example, HashMap<String, String> context, String level,  boolean regular, String category, List<String> subcategory, String group, HashMap<String, String> conjugation, HashMap<String, String> furigana, int difficulty) {
         this.id = id;
         this.meaning = meaning;
         this.level = level;
@@ -42,14 +43,14 @@ public class Vocabulary {
     public String getId() {
         return id;
     }
-    public ArrayMap<String, String> getMeaning() {
+    public HashMap<String, String> getMeaning() {
         return meaning;
     }
-    public ArrayMap<String, String> getExample() {
+    public HashMap<String, String> getExample() {
         return example;
     }
 
-    public ArrayMap<String, String> getContext() {
+    public HashMap<String, String> getContext() {
         return context;
     }
     public String getLevel() {
@@ -64,7 +65,7 @@ public class Vocabulary {
         return category;
     }
 
-    public String getSubcategory() {
+    public List<String> getSubcategory() {
         return subcategory;
     }
 
@@ -72,11 +73,11 @@ public class Vocabulary {
         return group;
     }
 
-    public ArrayMap<String, String> getConjugation() {
+    public HashMap<String, String> getConjugation() {
         return conjugation;
     }
 
-    public ArrayMap<String, String> getFurigana() {
+    public HashMap<String, String> getFurigana() {
         return furigana;
     }
 
@@ -89,7 +90,7 @@ public class Vocabulary {
         this.id = id;
     }
 
-    public void setMeaning(ArrayMap<String, String> meaning) {
+    public void setMeaning(HashMap<String, String> meaning) {
         this.meaning = meaning;
     }
 
@@ -97,11 +98,11 @@ public class Vocabulary {
         this.level = level;
     }
 
-    public void setExample(ArrayMap<String, String> example) {
+    public void setExample(HashMap<String, String> example) {
         this.example = example;
     }
 
-    public void setContext(ArrayMap<String, String> context) {
+    public void setContext(HashMap<String, String> context) {
         this.context = context;
     }
 
@@ -113,7 +114,7 @@ public class Vocabulary {
         this.category = category;
     }
 
-    public void setSubcategory(String subcategory) {
+    public void setSubcategory(List<String> subcategory) {
         this.subcategory = subcategory;
     }
 
@@ -121,15 +122,33 @@ public class Vocabulary {
         this.group = group;
     }
 
-    public void setConjugation(ArrayMap<String, String> conjugation) {
+    public void setConjugation(HashMap<String, String> conjugation) {
         this.conjugation = conjugation;
     }
 
-    public void setFurigana(ArrayMap<String, String> furigana) {
+    public void setFurigana(HashMap<String, String> furigana) {
         this.furigana = furigana;
     }
 
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
+    }
+
+    @Override
+    public String toString() {
+        return "Vocabulary{" +
+                "id='" + id + '\'' +
+                ", meaning=" + meaning +
+                ", example=" + example +
+                ", context=" + context +
+                ", level='" + level + '\'' +
+                ", regular=" + regular +
+                ", group='" + group + '\'' +
+                ", category='" + category + '\'' +
+                ", subcategory=" + subcategory +
+                ", conjugation=" + conjugation +
+                ", furigana=" + furigana +
+                ", difficulty=" + difficulty +
+                '}';
     }
 }

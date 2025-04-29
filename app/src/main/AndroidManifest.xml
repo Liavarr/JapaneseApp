@@ -12,8 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JapaneseApplication"
         tools:targetApi="31">
+
+        <!-- Declaring the activities -->
+        <activity android:name=".ui.ProfileActivity" />
+        <activity android:name=".ui.ConfigurationActivity" />
+        <activity android:name=".ui.AdminPanelActivity" />
+        <activity android:name=".ui.LoginActivity" />
+
+        <!-- Other activities -->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

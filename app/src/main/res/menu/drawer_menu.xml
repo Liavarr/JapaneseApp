@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_perfil"
+        android:title="@string/my_profile"
+        android:icon="@drawable/ic_person" />
+    <item
+        android:id="@+id/nav_config"
+        android:title="@string/configuration"
+        android:icon="@drawable/ic_settings" />
+    <item
+        android:id="@+id/nav_admin"
+        android:title="@string/panel_admin"
+        android:icon="@drawable/ic_admin_panel_settings" />
+    <item
+        android:id="@+id/nav_logout"
+        android:title="@string/close_session"
+        android:icon="@drawable/ic_logout" />
+</menu>

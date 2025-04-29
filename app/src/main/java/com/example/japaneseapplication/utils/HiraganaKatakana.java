@@ -72,7 +72,7 @@ public class HiraganaKatakana {
         return "Unknown parameter in detectLine";
     }
 
-    // We sent the Kana Value and the position
+    // We sent the Kana Value and the position, the position gets the specific value in the line
     public static String returnLine (String kana, int position){
         // Detect first wether the kana is hiragana or katakana
         Map<String, List<String>> mapa = isKatakana(kana) ? katakanaMap : hiraganaMap;
