@@ -6,4 +6,10 @@
     <string name="configuration">Configuration</string>
     <string name="panel_admin">Panel Admin</string>
     <string name="close_session">Close Session</string>
+    <string name="let_s_study">Let\'s Study!</string>
+    <string-array name="action_options">
+        <item>Add</item>
+        <item>Update</item>
+        <item>Delete</item>
+    </string-array>
 </resources>

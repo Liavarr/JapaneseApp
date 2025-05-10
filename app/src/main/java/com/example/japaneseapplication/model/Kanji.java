@@ -10,7 +10,7 @@ public class Kanji {
     private ArrayMap<String, String> meaning;
     private String level; // N5, N4, N3, N2, N1
     private String history;
-    private Kanji radical;
+    private ArrayList<Kanji> radical; // List of all kanjis that compose this kanji
     private ArrayList<String> onyomi; // Chinese reading
     private ArrayList<String> kunyomi; // Japanese reading
     private String category; //
@@ -22,7 +22,7 @@ public class Kanji {
     public Kanji() {
     }
 
-    public Kanji(String id, ArrayMap<String, String> meaning, String level, String history, Kanji radical, ArrayList<String> onyomi, ArrayList<String> kunyomi, String category, String subcategory, int difficulty) {
+    public Kanji(String id, ArrayMap<String, String> meaning, String level, String history, ArrayList<Kanji> radical, ArrayList<String> onyomi, ArrayList<String> kunyomi, String category, String subcategory, int difficulty) {
         this.id = id;
         this.meaning = meaning;
         this.level = level;
@@ -72,11 +72,11 @@ public class Kanji {
         this.history = history;
     }
 
-    public Kanji getRadical() {
+    public ArrayList<Kanji> getRadical() {
         return radical;
     }
 
-    public void setRadical(Kanji radical) {
+    public void setRadical(ArrayList<Kanji> radical) {
         this.radical = radical;
     }
 

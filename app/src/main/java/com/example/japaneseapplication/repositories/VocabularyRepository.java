@@ -38,10 +38,10 @@ public class VocabularyRepository {
                 .addOnFailureListener(onFailure);
     }
 
-    // READ
-    public void getVocabulary(String id, OnSuccessListener<Vocabulary> onSuccess, OnFailureListener onFailure) {
+    // READ - Lee un vocabulario pasandole el id, aqui le pasamos directamente los mensajes de error porque busca por id, solo devuelve 1 siempre
+    public void getVocabulary(Vocabulary vocabulary, OnSuccessListener<Vocabulary> onSuccess, OnFailureListener onFailure) {
         db.collection(COLLECTION_NAME)
-                .document(id)
+                .document(vocabulary.getId())
                 .get()
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists()) {
@@ -54,6 +54,7 @@ public class VocabularyRepository {
                 .addOnFailureListener(onFailure);
     }
 
+    // Lee un vocabulario buscando por palabra, necesitamos implementar lo que hace cada listener para cada caso, si devuelve más de uno que hace y eso
     public void searchVocabularyByMeaning(String palabra, OnVocabularyListResultListener listener) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -84,7 +85,7 @@ public class VocabularyRepository {
                 .addOnFailureListener(listener::onFailure);
     }
 
-    // UPDATE
+    // UPDATE - Se le pasa un vocabulary directamente, que cogerá buscando, se crea el objeto vocabulary y después se actualia,
     public void updateVocabulary(Vocabulary vocabulary, OnSuccessListener<Void> onSuccess, OnFailureListener onFailure) {
         if (vocabulary.getId() == null || vocabulary.getId().isEmpty()) {
             onFailure.onFailure(new Exception("Vocabulary ID is null or empty"));
@@ -98,10 +99,10 @@ public class VocabularyRepository {
                 .addOnFailureListener(onFailure);
     }
 
-    // DELETE
-    public void deleteVocabulary(String id, OnSuccessListener<Void> onSuccess, OnFailureListener onFailure) {
+    // DELETE - borra pasando el Vocabulary
+    public void deleteVocabulary(Vocabulary vocabulary, OnSuccessListener<Void> onSuccess, OnFailureListener onFailure) {
         db.collection(COLLECTION_NAME)
-                .document(id)
+                .document(vocabulary.getId())
                 .delete()
                 .addOnSuccessListener(onSuccess)
                 .addOnFailureListener(onFailure);

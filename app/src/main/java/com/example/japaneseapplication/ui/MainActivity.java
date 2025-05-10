@@ -27,99 +27,19 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends BaseActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navView;
     private Toolbar toolbar;
-    /*Button connect;
-    Button createSession;
-    Button delete;
-    TextView text;
-    String email = "";
-    String password = ""; // mínimo 6 caracteres
-    FirebaseUser user;
-    VocabularyRepository service = new VocabularyRepository();*/
-
-    /*Vocabulary vocab1 = new Vocabulary(
-            null, // ID generado automáticamente
-            new HashMap<String, String>() {{
-                put("en", "to read");
-                put("es", "leer");
-                put("jp", "読む");
-            }},
-            new HashMap<String, String>() {{
-                put("en", "I read a book.");
-                put("es", "Leo un libro.");
-                put("jp", "本を読みます。");
-            }},
-            new HashMap<String, String>() {{
-                put("general", "Common verb for reading books, newspapers, etc.");
-            }},
-            "N5",           // Nivel
-            true,           // Regular
-            "verb",         // Categoría
-            new ArrayList<>(Arrays.asList("colores", "ropa", "comida")),    // Subcategoría
-            "grupo 1",      // Grupo
-            new HashMap<String, String>() {{
-                // No necesita conjugaciones irregulares porque es regular
-            }},
-            new HashMap<String, String>() {{
-                put("読", "よ");
-            }},
-            2               // Dificultad
-    );
-
-    Vocabulary vocab2 = new Vocabulary(
-            null,
-            new HashMap<String, String>() {{
-                put("en", "to come");
-                put("es", "venir");
-                put("jp", "来る");
-            }},
-            new HashMap<String, String>() {{
-                put("en", "He comes to school.");
-                put("es", "Él viene a la escuela.");
-                put("jp", "彼は学校に来ます。");
-            }},
-            new HashMap<String, String>() {{
-                put("general", "Used for indicating movement towards the speaker.");
-            }},
-            "N5",
-            false,          // No regular
-            "verb",
-            new ArrayList<>(Arrays.asList("colores", "ropa", "comida")),
-            "grupo 3",      // Irregular verbs are usually treated as "grupo 3"
-            new HashMap<String, String>() {{
-                put("negativo", "来ない");
-                put("pasado", "来た");
-                put("teForm", "来て");
-                put("potencial", "来られる");
-                put("pasiva", "来られる");
-                put("causativa", "来させる");
-                put("volitiva", "来よう");
-                put("condicional", "来れば");
-            }},
-            new HashMap<String, String>() {{
-                put("来", "く");
-            }},
-            3
-    );*/
-
-
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-
-        initializeDrawerToggle();
+        //EdgeToEdge.enable(this);
+        setupDrawer(R.layout.activity_main);
         // initializeButtons();
         /*ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -128,45 +48,12 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });*/
 
-        FirebaseApp.initializeApp(this);
+
 
 
     }
 
-    private void initializeDrawerToggle(){
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navView = findViewById(R.id.nav_view);
-        toolbar = findViewById(R.id.toolbar);
 
-        setSupportActionBar(toolbar);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, toolbar,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-        navView.setNavigationItemSelectedListener(item -> {
-            int id = item.getItemId();
-
-            if (id == R.id.nav_perfil) {
-                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
-            } else if (id == R.id.nav_config) {
-                startActivity(new Intent(MainActivity.this, ConfigurationActivity.class));
-            } else if (id == R.id.nav_admin) {
-                startActivity(new Intent(MainActivity.this, AdminPanelActivity.class));
-            } else if (id == R.id.nav_logout) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
-            }
-
-            drawerLayout.closeDrawer(GravityCompat.START);
-            return true;
-        });
-    };
 
     /*private void initializeButtons(){
         connect = findViewById(R.id.connect);
@@ -264,5 +151,79 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }*/
+
+    /*Button connect;
+    Button createSession;
+    Button delete;
+    TextView text;
+    String email = "";
+    String password = ""; // mínimo 6 caracteres
+    FirebaseUser user;
+    VocabularyRepository service = new VocabularyRepository();*/
+
+    /*Vocabulary vocab1 = new Vocabulary(
+            null, // ID generado automáticamente
+            new HashMap<String, String>() {{
+                put("en", "to read");
+                put("es", "leer");
+                put("jp", "読む");
+            }},
+            new HashMap<String, String>() {{
+                put("en", "I read a book.");
+                put("es", "Leo un libro.");
+                put("jp", "本を読みます。");
+            }},
+            new HashMap<String, String>() {{
+                put("general", "Common verb for reading books, newspapers, etc.");
+            }},
+            "N5",           // Nivel
+            true,           // Regular
+            "verb",         // Categoría
+            new ArrayList<>(Arrays.asList("colores", "ropa", "comida")),    // Subcategoría
+            "grupo 1",      // Grupo
+            new HashMap<String, String>() {{
+                // No necesita conjugaciones irregulares porque es regular
+            }},
+            new HashMap<String, String>() {{
+                put("読", "よ");
+            }},
+            2               // Dificultad
+    );
+
+    Vocabulary vocab2 = new Vocabulary(
+            null,
+            new HashMap<String, String>() {{
+                put("en", "to come");
+                put("es", "venir");
+                put("jp", "来る");
+            }},
+            new HashMap<String, String>() {{
+                put("en", "He comes to school.");
+                put("es", "Él viene a la escuela.");
+                put("jp", "彼は学校に来ます。");
+            }},
+            new HashMap<String, String>() {{
+                put("general", "Used for indicating movement towards the speaker.");
+            }},
+            "N5",
+            false,          // No regular
+            "verb",
+            new ArrayList<>(Arrays.asList("colores", "ropa", "comida")),
+            "grupo 3",      // Irregular verbs are usually treated as "grupo 3"
+            new HashMap<String, String>() {{
+                put("negativo", "来ない");
+                put("pasado", "来た");
+                put("teForm", "来て");
+                put("potencial", "来られる");
+                put("pasiva", "来られる");
+                put("causativa", "来させる");
+                put("volitiva", "来よう");
+                put("condicional", "来れば");
+            }},
+            new HashMap<String, String>() {{
+                put("来", "く");
+            }},
+            3
+    );*/
 
 }

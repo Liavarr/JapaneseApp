@@ -43,6 +43,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation ("com.google.android.flexbox:flexbox:3.0.0")
+
 
     // Import the Firebase BoM
     implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
@@ -57,6 +59,7 @@ dependencies {
 
     // Firebase Authentication
     implementation ("com.google.firebase:firebase-auth:22.3.1")
+
 
 
 

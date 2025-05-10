@@ -1,5 +1,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/main_screen"
+        android:title="@string/let_s_study"
+        android:icon="@drawable/ic_person" />
+    <item
         android:id="@+id/nav_perfil"
         android:title="@string/my_profile"
         android:icon="@drawable/ic_person" />
