@@ -1,5 +1,8 @@
 package com.example.japaneseapplication.model;
 
+import com.example.japaneseapplication.controllers.FormIgnore;
+import com.example.japaneseapplication.controllers.FormOrder;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,18 +10,31 @@ import java.util.Map;
 
 public class Vocabulary {
     // Attributes
+    @FormIgnore
     private String id;
-    private HashMap<String, String> meaning;
-    private HashMap<String, String> example;
-    private HashMap<String, String> context;
+    @FormOrder(1)
+    private HashMap<String, String> meaning; // languages
+    @FormOrder(2)
+    private HashMap<String, String> example; // languages
+    @FormOrder(3)
+    private HashMap<String, String> context; // languages
+    @FormOrder(4)
     private String level; // N5, N4, N3, N2, N1
+    @FormOrder(5)
     private boolean regular; // If is a verb it could be not regular
+    @FormOrder(6)
     private String group; // For example group 1, group 2, group 3, adj na, adj i, counter, etc.
+    @FormOrder(7)
     private String category; //
+    @FormOrder(8)
     private List<String> subcategory; //
+    @FormOrder(9)
     private HashMap <String, String> conjugation; // Here we save all non regular verbs
+    @FormOrder(10)
     private HashMap <String, String> furigana; //here we save syllable with its reading Kanji - Hiragana
+    @FormOrder(11)
     private int difficulty;
+
 
     // Constructors
     public Vocabulary() {

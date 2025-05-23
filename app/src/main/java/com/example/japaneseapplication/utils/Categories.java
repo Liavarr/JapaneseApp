@@ -3,7 +3,7 @@ package com.example.japaneseapplication.utils;
 public class Categories {
 
     // All conjugation-related things
-    public String[] group = new String[8];
+    public static String[] group = new String[8];
     {
         group[0] = "Group1";
         group[1] = "Group2";
@@ -16,7 +16,7 @@ public class Categories {
     }
 
     // Generic categories, for splitting the studies themselves
-    public String[] category = new String[4];
+    public static String[] category = new String[4];
     {
         category[0] = "Noun";
         category[1] = "Adjetive";
@@ -25,7 +25,7 @@ public class Categories {
     }
 
     // This is more for searching and provide more context, we can use this for study per type, like I want to study kind of food, and those things
-    public String[] subcategory = new String[9];
+    public static String[] subcategory = new String[9];
     {
         subcategory[0] = "Family";
         subcategory[1] = "Food";
@@ -37,4 +37,6 @@ public class Categories {
         subcategory[7] = "Home";
         subcategory[8] = "Vehicle";
     }
+
+
 }

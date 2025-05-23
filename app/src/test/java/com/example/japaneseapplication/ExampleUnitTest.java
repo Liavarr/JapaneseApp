@@ -19,4 +19,9 @@ public class ExampleUnitTest {
     public void testAnalizeVocabulary(){
 
     }
+
+    @Test
+    public void createWords(){
+
+    }
 }

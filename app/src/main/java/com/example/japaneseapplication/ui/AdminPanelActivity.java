@@ -6,13 +6,15 @@ import androidx.cardview.widget.CardView;
 
 import com.example.japaneseapplication.R;
 public class AdminPanelActivity extends BaseActivity{
-
+    // Variables
     CardView vocabulary;
     CardView kanji;
     CardView grammar;
     CardView exam;
     CardView user;
+    String toEdit;
 
+    //Initializer
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +24,7 @@ public class AdminPanelActivity extends BaseActivity{
         redirectButtons();
     }
 
+    // Assign the buttons to the variable to the id of the activity layout
     private void initializeButtons(){
         vocabulary = findViewById(R.id.edit_vocabulary);
         kanji = findViewById(R.id.edit_kanji);
@@ -30,21 +33,33 @@ public class AdminPanelActivity extends BaseActivity{
         user = findViewById(R.id.edit_user);
     }
 
+    // Assign to each button what it does
     private void redirectButtons(){
         vocabulary.setOnClickListener(view -> {
-            startActivity(new Intent(this, AdminPanelEditVocabularyActivity.class));
+            startEditActivity("vocabulary");
         });
-        kanji.setOnClickListener(View -> {
-            startActivity(new Intent(this, AdminPanelEditVocabularyActivity.class));
+
+        kanji.setOnClickListener(view -> {
+            startEditActivity("kanji");
         });
-        grammar.setOnClickListener(View -> {
-            startActivity(new Intent(this, AdminPanelEditVocabularyActivity.class));
+
+        grammar.setOnClickListener(view -> {
+            startEditActivity("grammar");
         });
-        exam.setOnClickListener(View -> {
-            startActivity(new Intent(this, AdminPanelEditVocabularyActivity.class));
+
+        exam.setOnClickListener(view -> {
+            startEditActivity("exam");
         });
-        user.setOnClickListener(View -> {
-            startActivity(new Intent(this, AdminPanelEditVocabularyActivity.class));
+
+        user.setOnClickListener(view -> {
+            startEditActivity("user");
         });
+    }
+
+    // Class to send in the parameter what you are going to do
+    private void startEditActivity(String toEdit) {
+        Intent intent = new Intent(this, AdminPanelCRUDActivity.class);
+        intent.putExtra("toEdit", toEdit);
+        startActivity(intent);
     }
 }
