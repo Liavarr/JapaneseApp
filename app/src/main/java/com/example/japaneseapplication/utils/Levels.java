@@ -1,8 +1,8 @@
 package com.example.japaneseapplication.utils;
 
 public class Levels {
-    public String[] level = new String[5];
-    {
+    public static String[] level = new String[5];
+    static {
         level[0] = "N5";
         level[1] = "N4";
         level[2] = "N3";
@@ -10,8 +10,8 @@ public class Levels {
         level[4] = "N1";
     }
 
-    public int[] difficulty = new int[5];
-    {
+    public static int[] difficulty = new int[5];
+    static {
         difficulty[0] = 1; // Easiest one
         difficulty[1] = 2;
         difficulty[2] = 3;

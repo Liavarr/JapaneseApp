@@ -1,5 +1,7 @@
 package com.example.japaneseapplication.model;
 
+import android.util.Log;
+
 import com.example.japaneseapplication.controllers.FormIgnore;
 import com.example.japaneseapplication.controllers.FormOrder;
 
@@ -20,21 +22,21 @@ public class Vocabulary {
     private HashMap<String, String> context; // languages
     @FormOrder(4)
     private String level; // N5, N4, N3, N2, N1
+     // If is a verb it could be not regular
     @FormOrder(5)
-    private boolean regular; // If is a verb it could be not regular
-    @FormOrder(6)
     private String group; // For example group 1, group 2, group 3, adj na, adj i, counter, etc.
-    @FormOrder(7)
+    @FormOrder(6)
     private String category; //
-    @FormOrder(8)
+    @FormOrder(7)
     private List<String> subcategory; //
-    @FormOrder(9)
+    @FormIgnore
     private HashMap <String, String> conjugation; // Here we save all non regular verbs
-    @FormOrder(10)
+    @FormOrder(9)
     private HashMap <String, String> furigana; //here we save syllable with its reading Kanji - Hiragana
-    @FormOrder(11)
+    @FormOrder(10)
     private int difficulty;
-
+    @FormOrder(11)
+    private boolean regular;
 
     // Constructors
     public Vocabulary() {
@@ -54,6 +56,7 @@ public class Vocabulary {
         this.furigana = furigana;
         this.difficulty = difficulty;
     }
+
 
     // Getter
     public String getId() {
@@ -167,4 +170,34 @@ public class Vocabulary {
                 ", difficulty=" + difficulty +
                 '}';
     }
+
+    @SuppressWarnings("unchecked")
+    public Vocabulary buildVocabularyFromMap(HashMap<String, Object> data) {
+        Vocabulary vocab = new Vocabulary();
+        Log.d("Vocabulary", "buildVocabularyFromMap: "+data.getOrDefault("meaning", new HashMap<>()));
+        vocab.setMeaning((HashMap<String, String>) data.getOrDefault("meaning", new HashMap<>()));
+        vocab.setExample((HashMap<String, String>) data.getOrDefault("example", new HashMap<>()));
+        vocab.setContext((HashMap<String, String>) data.getOrDefault("context", new HashMap<>()));
+        vocab.setLevel((String) data.getOrDefault("level", ""));
+        vocab.setRegular(data.get("regular") == null || Boolean.TRUE.equals(data.get("regular")));
+        vocab.setCategory((String) data.getOrDefault("category", ""));
+        vocab.setSubcategory((List<String>) data.getOrDefault("subcategory", new ArrayList<>()));
+        vocab.setGroup((String) data.getOrDefault("group", ""));
+        vocab.setConjugation((HashMap<String, String>) data.getOrDefault("conjugation", new HashMap<>()));
+        vocab.setFurigana((HashMap<String, String>) data.getOrDefault("furigana", new HashMap<>()));
+
+        Object difficultyObj = data.get("difficulty");
+        int difficulty = 0;
+        if (difficultyObj != null) {
+            try {
+                difficulty = Integer.parseInt(difficultyObj.toString());
+            } catch (NumberFormatException e) {
+                // Si no se puede convertir, se deja en 0
+            }
+        }
+        vocab.setDifficulty(difficulty);
+        vocab.toString();
+        return vocab;
+    }
+
 }

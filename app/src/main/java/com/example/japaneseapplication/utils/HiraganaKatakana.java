@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class HiraganaKatakana {
-    private static final Map<String, List<String>> hiraganaMap = new HashMap<>();
+    public static final Map<String, List<String>> hiraganaMap = new HashMap<>();
     static {
         hiraganaMap.put("A", Arrays.asList("あ", "い", "う", "え", "お"));
         hiraganaMap.put("K", Arrays.asList("か", "き", "く", "け", "こ"));
@@ -28,7 +28,7 @@ public class HiraganaKatakana {
         hiraganaMap.put("P", Arrays.asList("ぱ", "ぴ", "ぷ", "ぺ", "ぽ"));
     }
 
-    private static final Map<String, List<String>> katakanaMap = new HashMap<>();
+    public static final Map<String, List<String>> katakanaMap = new HashMap<>();
     static {
         katakanaMap.put("A", Arrays.asList("ア", "イ", "ウ", "エ", "オ"));
         katakanaMap.put("K", Arrays.asList("カ", "キ", "ク", "ケ", "コ"));

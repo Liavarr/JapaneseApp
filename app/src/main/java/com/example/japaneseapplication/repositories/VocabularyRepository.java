@@ -81,6 +81,26 @@ public class VocabularyRepository {
                 .addOnFailureListener(onFailure);
     }
 
+    public void getAllVocabulary(OnResultListener<Vocabulary> listener) {
+        db.collection(COLLECTION_NAME)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    List<Vocabulary> results = new ArrayList<>();
+                    for (DocumentSnapshot doc : queryDocumentSnapshots) {
+                        Vocabulary vocab = doc.toObject(Vocabulary.class);
+                        vocab.setId(doc.getId());
+                        results.add(vocab);
+                    }
+
+                    if (!results.isEmpty()) {
+                        listener.onSuccess(results);
+                    } else {
+                        listener.onNotFound();
+                    }
+                })
+                .addOnFailureListener(listener::onFailure);
+    }
+
     // Lee un vocabulario buscando por palabra, necesitamos implementar lo que hace cada listener para cada caso
     // si devuelve más de uno el listener devuelve una list
     public void searchVocabularyByMeaning(String palabra, OnResultListener listener) {

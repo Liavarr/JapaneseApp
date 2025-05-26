@@ -1,8 +1,8 @@
 package com.example.japaneseapplication.utils;
 
 public class ConjugationForms {
-    public String[] verbalForm = new String[10];
-    {
+    public static String[] verbalForm = new String[10];
+    static {
         // base
         verbalForm[0] = "short"; // Dicctionary
         // long
@@ -19,8 +19,8 @@ public class ConjugationForms {
         verbalForm[9] = "imperativeYakuza"; // XD
     }
 
-    public String[] adjetiveFormI = new String[10];
-    {
+    public static String[] adjetiveFormI = new String[10];
+    static {
         // Base
         verbalForm[0] = "short"; // Remove I
         verbalForm[1] = "negative"; // ~Kunai
